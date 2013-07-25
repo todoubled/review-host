@@ -7,6 +7,7 @@ function host(opts) {
   if (!opts) opts = {}
   if (!opts.sites) opts.sites = process.cwd() + '/sites'
   if (!opts.cache) opts.cache = process.cwd() + '/cache'
+  if (!opts.rootUrl) opts.rootUrl = '/'
   
   var app = express()
   
@@ -35,7 +36,7 @@ function host(opts) {
    * index page
    */
   
-  app.get('/', function (req, res, next) {
+  app.get(opts.rootUrl, function (req, res, next) {
     res.render('index', { sites : sites })
   })
   
