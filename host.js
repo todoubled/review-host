@@ -29,7 +29,7 @@ function host(opts) {
   
   sites.forEach(function (site) {
     var handler = require(opts.sites + '/' + site)(opts.cache)
-    app.use(opts.rootUrl + site + '/', handler)
+    app.use(opts.rootUrl + '/' + site + '/', handler)
   })
   
   /**
